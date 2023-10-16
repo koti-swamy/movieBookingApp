@@ -1,0 +1,330 @@
+<div class="sideBar bg-white shadow-sm text-black pt-5">
+  <ul class="p-0">
+    <!-- theater -->
+    <li>
+      <!-- Button trigger modal -->
+      <a
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdropTheater"
+      >
+        Add theater
+      </a>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdropTheater"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 text-black" id="exampleModalLabel">
+                Add Theater
+              </h1>
+            </div>
+            <div class="modal-body text-black d-flex flex-column gap-3">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control border-1 border-dark text-black"
+                  id="theaterName"
+                  name="theaterName"
+                  placeholder="Theater name"
+                />
+                <label for="theaterName">Theater name</label>
+                <p class="text-danger theaterNameErr m-0"></p>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control border-1 border-dark text-black"
+                  id="theaterAddress"
+                  name="theaterAddress"
+                  placeholder="Address"
+                />
+                <label for="theaterAddress">Address</label>
+                <p class="text-danger theaterAddressErr m-0"></p>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="number"
+                  class="form-control border-1 border-dark text-black"
+                  id="theaterFoundedYear"
+                  name="theaterFoundedYear"
+                  placeholder="Founded year"
+                  min="0"
+                  max="9999"
+                  oninput="validity.valid||(value='');"
+                />
+                <label for="theaterFoundedYear">Founded year</label>
+                <p class="text-danger theaterFoundedYearErr m-0"></p>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="number"
+                  class="form-control border-1 border-dark text-black"
+                  min="0"
+                  oninput="validity.valid||(value='');"
+                  id="theaterSeatingCapacity"
+                  name="theaterSeatingCapacity"
+                  placeholder="Seating capacity"
+                />
+                <label for="theaterSeatingCapacity">Seating capacity</label>
+                <p class="text-danger theaterSeatingCapacityErr m-0"></p>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="number"
+                  class="form-control border-1 border-dark text-black"
+                  id="ticketPrice"
+                  name="ticketPrice"
+                  placeholder="Ticket price"
+                  oninput="validity.valid||(value='');"
+                  min="0"
+                />
+                <label for="ticketPrice">Ticket price</label>
+                <p class="text-danger ticketPriceErr m-0"></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary theaterCloseBtn"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary theaterAddBtn">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <!-- movie -->
+    <li>
+      <!-- Button trigger modal -->
+      <a
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdropMovie"
+        id="addMovieCard"
+      >
+        Add movie
+      </a>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdropMovie"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">
+                Add Movie
+              </h1>
+            </div>
+            <div class="modal-body">
+              <div class="input-group mb-3 d-flex flex-column">
+                <div class="form-floating w-100">
+                  <select
+                    class="form-select"
+                    id="inputGroupTheater"
+                    aria-label="Floating label select example"
+                  >
+                    <option selected value="">Choose theater name</option>
+                  </select>
+                  <label for="inputGroupTheater" class="text-black"
+                    >Theater Name</label
+                  >
+                </div>
+                <p class="m-0 text-danger inputGroupTheaterErr"></p>
+              </div>
+              <div class="input-group mb-3 d-flex flex-column">
+                <div class="form-floating w-100">
+                  <select
+                    class="form-select"
+                    id="inputGroupMovie"
+                    aria-label="Floating label select example"
+                  >
+                    <option selected value="">Choose movie name</option>
+                  </select>
+                  <label for="inputGroupMovie" class="text-black"
+                    >Movie Name</label
+                  >
+                </div>
+                <p class="m-0 text-danger inputGroupMovieErr"></p>
+              </div>
+              <div>
+                <label for="showDateTime" class="text-black"
+                  >Add show date & time</label
+                >
+                <input
+                  type="datetime-local"
+                  id="showDateTime"
+                  class="form-control"
+                />
+                <p class="m-0 text-danger showDateTimeErr"></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary movieCloseBtn"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary movieAddBtn">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <!-- booking -->
+    <li>
+      <!-- Button trigger modal -->
+      <a
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdropBooking"
+        id="addBooking"
+      >
+        Add booking
+      </a>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdropBooking"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 text-black" id="staticBackdropLabel">
+                Add Booking
+              </h1>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="bookingTheaterList"
+                  aria-label="Floating label select example"
+                ></select>
+                <label for="bookingTheaterList" class="text-black"
+                  >Theater Name</label
+                >
+              </div>
+              <p class="text-danger fw-normal bookingTheaterListErr"></p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="bookingMovieList"
+                  aria-label="Floating label select example"
+                ></select>
+                <label for="bookingMovieList" class="text-black"
+                  >Movie Name</label
+                >
+              </div>
+              <p class="text-danger fw-normal bookingMovieListErr"></p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="bookingDateList"
+                  aria-label="Floating label select example"
+                ></select>
+                <label for="bookingDateList" class="text-black"
+                  >Show Date</label
+                >
+              </div>
+              <p class="text-danger fw-normal bookingDateListErr"></p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="bookingTimeList"
+                  aria-label="Floating label select example"
+                ></select>
+                <label for="bookingTimeList" class="text-black"
+                  >Show Time</label
+                >
+              </div>
+              <p class="text-danger fw-normal bookingTimeListErr"></p>
+              <div class="form-floating">
+                <input
+                  type="number"
+                  id="ticketQuantity"
+                  placeholder="Quantity"
+                  min="1"
+                  oninput="validity.valid||(value=1);"
+                  class="form-control text-black"
+                />
+                <label for="ticketQuantity" class="text-black"
+                  >Enter quantity</label
+                >
+                <p class="text-danger fw-normal ticketQuantityErr"></p>
+              </div>
+              <div>
+                <label for="ticketPriceEl" class="text-black-50"
+                  >Ticket price</label
+                >
+                <input
+                  type="number"
+                  id="ticketPriceEl"
+                  placeholder="Ticket price"
+                  class="form-control text-black"
+                  disabled
+                />
+              </div>
+              <div>
+                <label for="totalPrice" class="text-black-50"
+                  >Total price</label
+                >
+                <input
+                  type="number"
+                  id="totalPrice"
+                  placeholder="Total price"
+                  class="form-control text-black"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="closeBookingBtn"
+              >
+                Close
+              </button>
+              <button type="button" id="addBookingBtn" class="btn btn-primary">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

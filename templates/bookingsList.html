@@ -1,0 +1,147 @@
+<input
+  type="search"
+  class="form-control bg-transparent mb-3 text-white"
+  ng-model="searchInput"
+  placeholder="🔍 Search"
+/>
+<div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <thead class="tableHeadCard">
+      <tr>
+        <th scope="col" class="bg-white text-dark">SERIAL NO</th>
+        <th
+          scope="col"
+          class="bg-white text-dark"
+          ng-repeat="(x,y) in bookingList['0']"
+          ng-show="x!=='movie_img_url' && x!=='theater location' && x!=='ticket price'"
+        >
+          {{x | uppercase}}
+        </th>
+        <th scope="col" class="bg-white text-dark">TICKET</th>
+      </tr>
+    </thead>
+    <tbody class="tableBodyCard">
+      <tr ng-repeat="booking in bookingList | filter: searchInput">
+        <td>{{$index+1}}</td>
+        <td
+          ng-repeat="(x,y) in booking"
+          ng-show="x!=='movie_img_url' && x!=='theater location' && x!=='ticket price'"
+        >
+          {{x}}
+        </td>
+        <td>
+          <!-- Button trigger modal -->
+          <a
+            data-bs-toggle="modal"
+            class="text-primary fw-normal"
+            style="cursor: pointer; text-decoration: underline"
+            data-bs-target="#exampleModal{{$index}}"
+          >
+            view ticket
+          </a>
+
+          <!-- Modal -->
+          <div
+            class="modal fade text-black"
+            id="exampleModal{{$index}}"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Ticket
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="movieDetailCard d-flex gap-4">
+                    <img
+                      ng-src="{{booking.movie_img_url}}"
+                      class="movieImg rounded-3"
+                      alt="movie-img"
+                    />
+                    <div>
+                      <h3>{{booking["movie name"]}} (U/A)</h3>
+                      <p class="m-0">
+                        {{booking["show date time"] | date: 'EEE, dd MM'}} |
+                        {{booking["show date time"] | date:'h:i a'}}
+                      </p>
+                      <p class="m-0">
+                        {{booking["theater name"]}} | {{booking["theater
+                        location"]}}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="showDetailCard d-flex flex-row justify-content-between"
+                  >
+                    <p class="m-0 fw-semibold">
+                      {{booking["quantity"]}} Tickets(s)
+                    </p>
+                    <p class="m-0 fw-semibold">
+                      CustomerName:{{booking["customer name"]}}
+                    </p>
+                  </div>
+                  <p class="m-0 text-secondary text-center">
+                    A confirmation is sent on e-mail/SMS/WhatsApp within 15
+                    minutes of booking.
+                  </p>
+                  <div class="totalAmountCard d-flex justify-content-between">
+                    <div class="d-flex gap-3">
+                      <div>
+                        <p class="m-0 fw-bold">Booking Id</p>
+                        <p class="m-0 fw-semibold">{{booking["booking id"]}}</p>
+                      </div>
+                      <div>
+                        <p class="m-0 fw-bold">Movie name</p>
+                        <p class="m-0 fw-semibold">{{booking["movie name"]}}</p>
+                      </div>
+                    </div>
+                    <div class="d-flex gap-2">
+                      <div>
+                        <p class="m-0 fw-bold">Qty</p>
+                        <p class="m-0 fw-semibold">{{booking["quantity"]}}</p>
+                      </div>
+                      <div class="d-flex flex-column justify-content-end">
+                        <p class="m-0 fw-bold">*</p>
+                      </div>
+                      <div>
+                        <p class="m-0 fw-bold">price</p>
+                        <p class="m-0 fw-semibold">
+                          {{booking["ticket price"]}}
+                        </p>
+                      </div>
+                      <div>
+                        <p class="m-0 fw-bold">Total amount</p>
+                        <p class="m-0 fw-semibold">
+                          Rs.{{booking["total price"]}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="window.print()"
+                  >
+                    Print
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

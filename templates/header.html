@@ -1,0 +1,115 @@
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary navbarCard bg-white p-0 m-0 shadow-sm"
+  ng-controller="HeadCtrl"
+>
+  <div class="container-fluid p-0 m-0 pe-lg-5">
+    <a ui-sref="home"
+      ><img
+        src="https://png.pngtree.com/png-vector/20190816/ourmid/pngtree-film-logo-design-template-vector-isolated-illustration-png-image_1693431.jpg"
+        alt="movie-logo"
+        class="movieLogo"
+    /></a>
+    <div class="d-flex gap-2 order-lg-1">
+      <div class="dropdown">
+        <a
+          class="btn bg-secondary bg-opacity-25 dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            class="profileLogo"
+          />
+        </a>
+
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle text-warning"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+              {{userDetails["firstname"]+userDetails["lastname"]}}
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-envelope text-warning"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+                />
+              </svg>
+              {{userDetails["email"]}}
+            </a>
+          </li>
+          <li id="logoutBtn">
+            <a class="dropdown-item" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-arrow-right text-warning"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                />
+              </svg>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse bg-white" id="navbarSupportedContent">
+      <ul class="navbar-nav d-flex gap-2 mb-lg-0">
+        <li
+          ng-repeat="table in tablesList"
+          class="fw-semibold gap-2"
+          ng-if="table['table_name']!=='movie_timing_details'"
+        >
+          <a ui-sref="{{table['table_name']}}" ui-sref-active="activeNav"
+            >{{table["table_name"] | uppercase}}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

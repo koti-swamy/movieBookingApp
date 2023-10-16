@@ -1,0 +1,83 @@
+<div
+  class="registerBgContainer d-flex flex-column justify-content-center align-items-center container-fluid"
+>
+  <div
+    class="d-flex flex-column justify-content-center text-center text-white gap-2 col-10 col-sm-5 col-md-4 col-lg-3"
+  >
+    <h1 class="registerHead">Register</h1>
+    <div class="inputCard form-floating">
+      <input
+        type="text"
+        placeholder="Enter First Name"
+        id="firstnameEl"
+        class="form-control bg-transparent text-white border-0 border-bottom"
+        ng-model="firstName"
+        ng-change="firstNameValidation()"
+        ng-class="{'is-invalid':firstNameErr}"
+      />
+      <label for="firstName">First name</label>
+      <p class="text-warning text-start m-0" ng-show="firstNameErr">
+        {{firstNameErr}}
+      </p>
+    </div>
+    <div class="inputCard form-floating">
+      <input
+        type="text"
+        placeholder="Enter last name"
+        class="form-control bg-transparent text-white border-0 border-bottom"
+        ng-model="lastName"
+        ng-class="{'is-invalid': lastNameErr}"
+        ng-change="lastNameValidation()"
+      />
+      <label for="lastnameEl">Last name</label>
+      <p class="text-warning text-start m-0" ng-show="lastNameErr">
+        {{lastNameErr}}
+      </p>
+    </div>
+    <div class="inputCard form-floating">
+      <input
+        type="text"
+        placeholder="Enter email"
+        class="form-control bg-transparent text-white border-0 border-bottom"
+        ng-model="email"
+        ng-change="emailValidation()"
+        ng-class="{'is-invalid':emailErr}"
+      />
+      <label for="email">Email</label>
+      <p class="text-warning text-start m-0" ng-show="emailErr">{{emailErr}}</p>
+    </div>
+    <div class="inputCard form-floating">
+      <input
+        type="text"
+        placeholder="Enter password"
+        class="form-control bg-transparent text-white border-0 border-bottom"
+        ng-model="password"
+        ng-change="passwordValidation()"
+        ng-class="{'is-invalid':passwordErr}"
+      />
+      <label for="password">Password</label>
+      <p class="text-warning text-start m-0" ng-show="passwordErr">
+        {{passwordErr}}
+      </p>
+    </div>
+    <div class="form-floating">
+      <input
+        type="password"
+        id="confirmpasswordEl"
+        placeholder="Enter confirm password"
+        class="form-control bg-transparent text-white border-0 border-bottom"
+        ng-model="confirmPassword"
+        ng-class="{'is-invalid':confirmPasswordErr}"
+        ng-change="confirmPasswordValidation()"
+      />
+      <label for="confirmPassword">Confirm Password</label>
+      <p class="text-warning text-start  m-0" ng-show="confirmPasswordErr">{{confirmPasswordErr}}</p>
+    </div>
+    <button class="btn btn-danger" ng-click="signupBtn()">Signup</button>
+    <p class="text-white">
+      Already have an account?<a class="text-info fw-bolder" ui-sref="login"
+        >login</a
+      >
+    </p>
+  </div>
+</div>

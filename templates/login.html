@@ -1,0 +1,39 @@
+<div
+  class="d-flex flex-column justify-content-center align-items-center container-fluid loginBgContainer"
+>
+  <div
+    class="d-flex flex-column gap-3 text-center text-white col-10 col-sm-5 col-md-4 col-lg-3"
+  >
+    <h1 class="loginHead">Login</h1>
+    <div class="form-floating">
+      <input
+        type="text"
+        placeholder="Enter Email"
+        class="form-control bg-transparent text-white border-0 border-bottom"
+        ng-model="email"
+        ng-class="{'is-invalid':emailErr}"
+        ng-change="emailValidation()"
+      />
+      <label for="email">Email</label>
+      <p class="text-warning text-start m-0 fs-6" ng-show="emailErr">{{emailErr}}</p>
+    </div>
+    <div class="form-floating">
+      <input
+        type="password"
+        placeholder="Enter password"
+        class="form-control bg-transparent text-white border-0 border-bottom"
+        ng-model="password"
+        ng-change="passwordValidation()"
+        ng-class="{'is-invalid':passwordErr}"
+      />
+      <label for="passwordEl">Password</label>
+      <p class="text-warning text-start  m-0" ng-show="passwordErr">{{passwordErr}}</p>
+    </div>
+
+    <button class="btn btn-danger" ng-click="loginBtn()">Login</button>
+    <p class="text-white">
+      Don't have an account?
+      <a class="text-info fw-bolder signupNav" ui-sref="register">Signup</a>
+    </p>
+  </div>
+</div>

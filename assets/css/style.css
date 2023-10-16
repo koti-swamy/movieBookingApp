@@ -1,0 +1,86 @@
+/* login state */
+
+.loginBgContainer {
+  height: 100vh;
+  background-image: url("https://assets-global.website-files.com/5927644d3f24a8324ee3c61b/592e524b84474a1dbc4943fc_movies.jpg");
+  background-size: cover;
+}
+
+.loginHead {
+  -webkit-text-stroke-color: red;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-family: cursive;
+}
+
+/* register state */
+
+.registerBgContainer {
+  height: 100vh;
+  background-image: url("https://assets-global.website-files.com/5927644d3f24a8324ee3c61b/592e524b84474a1dbc4943fc_movies.jpg");
+  background-size: cover;
+}
+
+.registerHead {
+  -webkit-text-stroke-color: red;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-family: cursive;
+}
+
+/* navbar */
+
+.navbarCard {
+  height: 10vh;
+  z-index: 1;
+}
+
+.movieLogo {
+  height: 8vh;
+  cursor: pointer;
+}
+
+.profileLogo {
+  height: 5vh;
+}
+
+.activeNav{
+  color: orange;
+}
+
+/*  sideBar */
+
+.sideBar{
+  height: 90vh;
+  width: 250px;
+}
+
+.sideBar ul li{
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.sideBar ul li:hover{
+  background-color: black;
+  color: white;
+}
+.contentCard {
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+
+/* home */
+
+.userName {
+  -webkit-text-stroke-color: white;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke-width: 1px;
+  font-family: cursive;
+}
+
+.videoStyle {
+  height: 100%;
+  width: 100%;
+}
